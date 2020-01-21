@@ -1,7 +1,7 @@
 package com.example.lab1a_jag;
 
 import android.os.Bundle;
-
+import android.widget.*;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,9 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
+    private int counter = 1;
+    private int  number;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -28,7 +30,24 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
         });
+        number = 50;
+        TextView t = (TextView) findViewById(R.id.outputView);
+        String s = Integer.toString(number);
+        t.setText(s);
+    }
+    public void incrementButtonClicked(View v) {
+        number = counter + number ;
+        String s = Integer.toString(number);
+        TextView t = (TextView) findViewById(R.id.outputView);
+        t.setText(s);
+    }
+    public void decrementButtonClicked(View v) {
+        number = number - counter ;
+        String s = Integer.toString(number);
+        TextView t = (TextView) findViewById(R.id.outputView);
+        t.setText(s);
     }
 
     @Override
